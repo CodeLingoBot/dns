@@ -201,7 +201,7 @@ func TsigVerify(msg []byte, secret, requestMAC string, timersOnly bool) error {
 	return nil
 }
 
-// Create a wiredata buffer for the MAC calculation.
+// tsigBuffer; Create a wiredata buffer for the MAC calculation.
 func tsigBuffer(msgbuf []byte, rr *TSIG, requestMAC string, timersOnly bool) []byte {
 	var buf []byte
 	if rr.TimeSigned == 0 {
@@ -254,7 +254,7 @@ func tsigBuffer(msgbuf []byte, rr *TSIG, requestMAC string, timersOnly bool) []b
 	return buf
 }
 
-// Strip the TSIG from the raw message.
+// stripTsig; the TSIG from the raw message.
 func stripTsig(msg []byte) ([]byte, *TSIG, error) {
 	// Copied from msg.go's Unpack() Header, but modified.
 	var (
@@ -313,7 +313,7 @@ func stripTsig(msg []byte) ([]byte, *TSIG, error) {
 	return msg[:tsigoff], rr, nil
 }
 
-// Translate the TSIG time signed into a date. There is no
+// tsigTimeToString; Translate the TSIG time signed into a date. There is no
 // need for RFC1982 calculations as this date is 48 bits.
 func tsigTimeToString(t uint64) string {
 	ti := time.Unix(int64(t), 0).UTC()

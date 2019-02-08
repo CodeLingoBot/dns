@@ -93,7 +93,7 @@ func (k *DNSKEY) Generate(bits int) (crypto.PrivateKey, error) {
 	}
 }
 
-// Set the public key (the value E and N)
+// setPublicKeyRSA; Set the public key (the value E and N)
 func (k *DNSKEY) setPublicKeyRSA(_E int, _N *big.Int) bool {
 	if _E == 0 || _N == nil {
 		return false
@@ -104,7 +104,7 @@ func (k *DNSKEY) setPublicKeyRSA(_E int, _N *big.Int) bool {
 	return true
 }
 
-// Set the public key for Elliptic Curves
+// setPublicKeyECDSA; Set the public key for Elliptic Curves
 func (k *DNSKEY) setPublicKeyECDSA(_X, _Y *big.Int) bool {
 	if _X == nil || _Y == nil {
 		return false
@@ -120,7 +120,7 @@ func (k *DNSKEY) setPublicKeyECDSA(_X, _Y *big.Int) bool {
 	return true
 }
 
-// Set the public key for DSA
+// setPublicKeyDSA; Set the public key for DSA
 func (k *DNSKEY) setPublicKeyDSA(_Q, _P, _G, _Y *big.Int) bool {
 	if _Q == nil || _P == nil || _G == nil || _Y == nil {
 		return false
@@ -130,7 +130,7 @@ func (k *DNSKEY) setPublicKeyDSA(_Q, _P, _G, _Y *big.Int) bool {
 	return true
 }
 
-// Set the public key for Ed25519
+// setPublicKeyED25519; Set the public key for Ed25519
 func (k *DNSKEY) setPublicKeyED25519(_K ed25519.PublicKey) bool {
 	if _K == nil {
 		return false
@@ -139,7 +139,7 @@ func (k *DNSKEY) setPublicKeyED25519(_K ed25519.PublicKey) bool {
 	return true
 }
 
-// Set the public key (the values E and N) for RSA
+// exponentToBuf; Set the public key (the values E and N) for RSA
 // RFC 3110: Section 2. RSA Public KEY Resource Records
 func exponentToBuf(_E int) []byte {
 	var buf []byte
@@ -157,7 +157,7 @@ func exponentToBuf(_E int) []byte {
 	return buf
 }
 
-// Set the public key for X and Y for Curve. The two
+// curveToBuf; Set the public key for X and Y for Curve. The two
 // values are just concatenated.
 func curveToBuf(_X, _Y *big.Int, intlen int) []byte {
 	buf := intToBytes(_X, intlen)
@@ -165,7 +165,7 @@ func curveToBuf(_X, _Y *big.Int, intlen int) []byte {
 	return buf
 }
 
-// Set the public key for X and Y for Curve. The two
+// dsaToBuf; Set the public key for X and Y for Curve. The two
 // values are just concatenated.
 func dsaToBuf(_Q, _P, _G, _Y *big.Int) []byte {
 	t := divRoundUp(divRoundUp(_G.BitLen(), 8)-64, 8)

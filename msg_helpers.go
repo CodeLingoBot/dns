@@ -170,7 +170,7 @@ func fromBase64(s []byte) (buf []byte, err error) {
 
 func toBase64(b []byte) string { return base64.StdEncoding.EncodeToString(b) }
 
-// dynamicUpdate returns true if the Rdlength is zero.
+// noRdata returns true if the Rdlength is zero.
 func noRdata(h RR_Header) bool { return h.Rdlength == 0 }
 
 func unpackUint8(msg []byte, off int) (i uint8, off1 int, err error) {

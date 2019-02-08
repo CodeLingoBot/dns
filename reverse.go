@@ -26,7 +26,7 @@ var StringToHash = reverseInt8(HashToString)
 // StringToCertType is the reverseof CertTypeToString.
 var StringToCertType = reverseInt16(CertTypeToString)
 
-// Reverse a map
+// reverseInt8; a map
 func reverseInt8(m map[uint8]string) map[string]uint8 {
 	n := make(map[string]uint8, len(m))
 	for u, s := range m {

@@ -2,7 +2,7 @@ package dns
 
 import "testing"
 
-// TestPacketDataNsec tests generated using fuzz.go and with a message pack
+// TestPackDataNsec tests generated using fuzz.go and with a message pack
 // containing the following bytes: 0000\x00\x00000000\x00\x002000000\x0060000\x00\x130000000000000000000"
 // That bytes sequence created the overflow error and further permutations of that sequence were able to trigger
 // the other code paths.

@@ -500,7 +500,7 @@ func TestSignVerifyEd25519(t *testing.T) {
 	}
 }
 
-// Here the test vectors from the relevant RFCs are checked.
+// TestRFC6605P256; Here the test vectors from the relevant RFCs are checked.
 // rfc6605 6.1
 func TestRFC6605P256(t *testing.T) {
 	exDNSKEY := `example.net. 3600 IN DNSKEY 257 3 13 (
@@ -562,7 +562,7 @@ PrivateKey: GU6SnQ/Ou+xC5RumuIUIuJZteXT2z0O/ok1s38Et6mQ=`
 	}
 }
 
-// rfc6605 6.2
+// TestRFC6605P384 checks a case when 6.2
 func TestRFC6605P384(t *testing.T) {
 	exDNSKEY := `example.net. 3600 IN DNSKEY 257 3 14 (
                  xKYaNhWdGOfJ+nPrL8/arkwf2EY3MDJ+SErKivBVSum1
@@ -629,7 +629,7 @@ PrivateKey: WURgWHCcYIYUPWgeLmiPY2DJJk02vgrmTfitxgqcL4vwW7BOrbawVmVe0d9V94SR`
 	}
 }
 
-// rfc8080 6.1
+// TestRFC8080Ed25519Example1 checks a case when 6.1
 func TestRFC8080Ed25519Example1(t *testing.T) {
 	exDNSKEY := `example.com. 3600 IN DNSKEY 257 3 15 (
              l02Woi0iS8Aa25FQkUd9RMzZHJpBoRQwAQEX1SxZJA4= )`
@@ -698,7 +698,7 @@ PrivateKey: ODIyNjAzODQ2MjgwODAxMjI2NDUxOTAyMDQxNDIyNjI=`
 	}
 }
 
-// rfc8080 6.1
+// TestRFC8080Ed25519Example2 checks a case when 6.1
 func TestRFC8080Ed25519Example2(t *testing.T) {
 	exDNSKEY := `example.com. 3600 IN DNSKEY 257 3 15 (
              zPnZ/QwEe7S8C5SPz2OfS5RR40ATk2/rYnE9xHIEijs= )`
@@ -828,7 +828,7 @@ func TestInvalidRRSet(t *testing.T) {
 	}
 }
 
-// Issue #688 - RSA exponent unpacked in reverse
+// TestRsaExponentUnpack checks a case when Issue #688 - RSA exponent unpacked in reverse
 func TestRsaExponentUnpack(t *testing.T) {
 	zskRrDnskey, _ := NewRR("isc.org.                7200    IN      DNSKEY  256 3 5 AwEAAcdkaRUlsRD4gcF63PpPJJ1E6kOIb3yn/UHptVsPEQtEbgJ2y20O eix4unpwoQkz+bIAd2rrOU/95wgV530x0/qqKwBLWoGkxdcnNcvVT4hl 3SOTZy1VjwkAfyayHPU8VisXqJGbB3KWevBZlb6AtrXzFu8AHuBeeAAe /fOgreCh")
 	kskRrDnskey, _ := NewRR("isc.org.                7200    IN      DNSKEY  257 3 5 BEAAAAOhHQDBrhQbtphgq2wQUpEQ5t4DtUHxoMVFu2hWLDMvoOMRXjGr hhCeFvAZih7yJHf8ZGfW6hd38hXG/xylYCO6Krpbdojwx8YMXLA5/kA+ u50WIL8ZR1R6KTbsYVMf/Qx5RiNbPClw+vT+U8eXEJmO20jIS1ULgqy3 47cBB1zMnnz/4LJpA0da9CbKj3A254T515sNIMcwsB8/2+2E63/zZrQz Bkj0BrN/9Bexjpiks3jRhZatEsXn3dTy47R09Uix5WcJt+xzqZ7+ysyL KOOedS39Z7SDmsn2eA0FKtQpwA6LXeG2w+jxmw3oA8lVUgEf/rzeC/bB yBNsO70aEFTd")

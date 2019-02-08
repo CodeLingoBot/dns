@@ -96,7 +96,7 @@ func (k *DNSKEY) ReadPrivateKey(q io.Reader, file string) (crypto.PrivateKey, er
 	}
 }
 
-// Read a private key (file) string and create a public key. Return the private key.
+// readPrivateKeyRSA; a private key (file) string and create a public key. Return the private key.
 func readPrivateKeyRSA(m map[string]string) (*rsa.PrivateKey, error) {
 	p := new(rsa.PrivateKey)
 	p.Primes = []*big.Int{nil, nil}

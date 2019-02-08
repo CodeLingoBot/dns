@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-// Parse the $GENERATE statement as used in BIND9 zones.
+// generate; Parse the $GENERATE statement as used in BIND9 zones.
 // See http://www.zytrax.com/books/dns/ch8/generate.html for instance.
 // We are called after '$GENERATE '. After which we expect:
 // * the range (12-24/2)
@@ -202,7 +202,7 @@ func (r *generateReader) ReadByte() (byte, error) {
 	}
 }
 
-// Convert a $GENERATE modifier 0,0,d to something Printf can deal with.
+// modToPrintf; Convert a $GENERATE modifier 0,0,d to something Printf can deal with.
 func modToPrintf(s string) (string, int, string) {
 	// Modifier is { offset [ ,width [ ,base ] ] } - provide default
 	// values for optional width and type, if necessary.

@@ -29,7 +29,7 @@ func WriteToSessionUDP(conn *net.UDPConn, b []byte, session *SessionUDP) (int, e
 	return conn.WriteTo(b, session.raddr)
 }
 
-// TODO(fastest963): Once go1.10 is released and we can use *MsgUDP methods
+// setUDPSocketOptions; TODO(fastest963): Once go1.10 is released and we can use *MsgUDP methods
 // use the standard method in udp.go for these.
 func setUDPSocketOptions(*net.UDPConn) error { return nil }
 func parseDstFromOOB([]byte, net.IP) net.IP  { return nil }

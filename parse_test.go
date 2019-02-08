@@ -225,7 +225,7 @@ func GenerateTXT(r *rand.Rand, size int) []byte {
 	return rd
 }
 
-// Ok, 2 things. 1) this test breaks with the new functionality of splitting up larger txt
+// testTXTRRQuick; Ok, 2 things. 1) this test breaks with the new functionality of splitting up larger txt
 // chunks into 255 byte pieces. 2) I don't like the random nature of this thing, because I can't
 // place the quotes where they need to be.
 // So either add some code the places the quotes in just the right spots, make this non random
@@ -641,7 +641,7 @@ b1slImA8YVJyuIDsj7kwzG7jnERNqnWxZ48AWkskmdHaVDP4BcelrTI3rMXdXF5D
 	}
 }
 
-// Test with no known RR on the line
+// TestLineNumberError2 tests with no known RR on the line
 func TestLineNumberError2(t *testing.T) {
 	tests := map[string]string{
 		"example.com. 1000 SO master.example.com. admin.example.com. 1 4294967294 4294967293 4294967295 100": "dns: expecting RR type or class, not this...: \"SO\" at line: 1:21",
@@ -665,7 +665,7 @@ func TestLineNumberError2(t *testing.T) {
 	}
 }
 
-// Test if the calculations are correct
+// TestRfc1982 tests if the calculations are correct
 func TestRfc1982(t *testing.T) {
 	// If the current time and the timestamp are more than 68 years apart
 	// it means the date has wrapped. 0 is 1970
@@ -1184,7 +1184,7 @@ func TestTxtLong(t *testing.T) {
 	}
 }
 
-// Basically, don't crash.
+// TestMalformedPackets checks a case when Basically, don't crash.
 func TestMalformedPackets(t *testing.T) {
 	var packets = []string{
 		"0021641c0000000100000000000078787878787878787878787303636f6d0000100001",
@@ -1248,7 +1248,7 @@ func TestNewPrivateKey(t *testing.T) {
 	}
 }
 
-// special input test
+// TestNewRRSpecial; input test
 func TestNewRRSpecial(t *testing.T) {
 	var (
 		rr     RR

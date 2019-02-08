@@ -9,7 +9,7 @@ import (
 	"github.com/miekg/dns"
 )
 
-// Retrieve the MX records for miek.nl.
+// ExampleMX retrieves the MX records for miek.nl.
 func ExampleMX() {
 	config, _ := dns.ClientConfigFromFile("/etc/resolv.conf")
 	c := new(dns.Client)
@@ -30,7 +30,7 @@ func ExampleMX() {
 	}
 }
 
-// Retrieve the DNSKEY records of a zone and convert them
+// ExampleDS retrieves the DNSKEY records of a zone and convert them
 // to DS records for SHA1, SHA256 and SHA384.
 func ExampleDS() {
 	config, _ := dns.ClientConfigFromFile("/etc/resolv.conf")

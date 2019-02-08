@@ -509,7 +509,7 @@ func (rr *RRSIG) ValidityPeriod(t time.Time) bool {
 	return ti <= utc && utc <= te
 }
 
-// Return the signatures base64 encodedig sigdata as a byte slice.
+// sigBuf; Return the signatures base64 encodedig sigdata as a byte slice.
 func (rr *RRSIG) sigBuf() []byte {
 	sigbuf, err := fromBase64([]byte(rr.Signature))
 	if err != nil {
@@ -645,7 +645,7 @@ func (p wireSlice) Less(i, j int) bool {
 	return bytes.Compare(p[i][ioff+10:], p[j][joff+10:]) < 0
 }
 
-// Return the raw signature data.
+// rawSignatureData; Return the raw signature data.
 func rawSignatureData(rrset []RR, s *RRSIG) (buf []byte, err error) {
 	wires := make(wireSlice, len(rrset))
 	for i, r := range rrset {

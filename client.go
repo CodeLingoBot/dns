@@ -373,7 +373,7 @@ func (co *Conn) Write(p []byte) (n int, err error) {
 	return co.Conn.Write(p)
 }
 
-// Return the appropriate timeout for a specific request
+// getTimeoutForRequest; Return the appropriate timeout for a specific request
 func (c *Client) getTimeoutForRequest(timeout time.Duration) time.Duration {
 	var requestTimeout time.Duration
 	if c.Timeout != 0 {

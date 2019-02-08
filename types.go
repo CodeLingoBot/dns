@@ -1064,7 +1064,7 @@ type TKEY struct {
 	OtherData  string `dns:"size-hex:OtherLen"`
 }
 
-// TKEY has no official presentation format, but this will suffice.
+// String; TKEY has no official presentation format, but this will suffice.
 func (rr *TKEY) String() string {
 	s := ";" + rr.Hdr.String() +
 		" " + rr.Algorithm +

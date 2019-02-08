@@ -1145,7 +1145,7 @@ func (zl *zlexer) Comment() string {
 	return zl.comment
 }
 
-// Extract the class number from CLASSxx
+// classToInt; Extract the class number from CLASSxx
 func classToInt(token string) (uint16, bool) {
 	offset := 5
 	if len(token) < offset+1 {
@@ -1158,7 +1158,7 @@ func classToInt(token string) (uint16, bool) {
 	return uint16(class), true
 }
 
-// Extract the rr number from TYPExxx
+// typeToInt; Extract the rr number from TYPExxx
 func typeToInt(token string) (uint16, bool) {
 	offset := 4
 	if len(token) < offset+1 {
@@ -1201,7 +1201,7 @@ func stringToTTL(token string) (uint32, bool) {
 	return s + i, true
 }
 
-// Parse LOC records' <digits>[.<digits>][mM] into a
+// stringToCm; Parse LOC records' <digits>[.<digits>][mM] into a
 // mantissa exponent format. Token should contain the entire
 // string (i.e. no spaces allowed)
 func stringToCm(token string) (e, m uint8, ok bool) {
@@ -1279,7 +1279,7 @@ func appendOrigin(name, origin string) string {
 	return name + "." + origin
 }
 
-// LOC record helper function
+// locCheckNorth; LOC record helper function
 func locCheckNorth(token string, latitude uint32) (uint32, bool) {
 	switch token {
 	case "n", "N":
@@ -1290,7 +1290,7 @@ func locCheckNorth(token string, latitude uint32) (uint32, bool) {
 	return latitude, false
 }
 
-// LOC record helper function
+// locCheckEast; LOC record helper function
 func locCheckEast(token string, longitude uint32) (uint32, bool) {
 	switch token {
 	case "e", "E":
@@ -1318,7 +1318,7 @@ func slurpRemainder(c *zlexer, f string) *ParseError {
 	return nil
 }
 
-// Parse a 64 bit-like ipv6 address: "0014:4fff:ff20:ee64"
+// stringToNodeID; Parse a 64 bit-like ipv6 address: "0014:4fff:ff20:ee64"
 // Used for NID and L64 record.
 func stringToNodeID(l lex) (uint64, *ParseError) {
 	if len(l.token) < 19 {

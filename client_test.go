@@ -211,7 +211,7 @@ func TestClientEDNS0(t *testing.T) {
 	}
 }
 
-// Validates the transmission and parsing of local EDNS0 options.
+// TestClientEDNS0Local validates the transmission and parsing of local EDNS0 options.
 func TestClientEDNS0Local(t *testing.T) {
 	optStr1 := "1979:0x0707"
 	optStr2 := strconv.Itoa(EDNS0LOCALSTART) + ":0x0601"
@@ -514,7 +514,7 @@ func TestTimeout(t *testing.T) {
 	})
 }
 
-// Check that responses from deduplicated requests aren't shared between callers
+// TestConcurrentExchanges checks that responses from deduplicated requests aren't shared between callers
 func TestConcurrentExchanges(t *testing.T) {
 	cases := make([]*Msg, 2)
 	cases[0] = new(Msg)

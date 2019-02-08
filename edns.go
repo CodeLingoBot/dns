@@ -379,6 +379,7 @@ func (e *EDNS0_UL) Option() uint16 { return EDNS0UL }
 func (e *EDNS0_UL) String() string { return strconv.FormatUint(uint64(e.Lease), 10) }
 func (e *EDNS0_UL) copy() EDNS0    { return &EDNS0_UL{e.Code, e.Lease} }
 
+// pack; 
 // Copied: http://golang.org/src/pkg/net/dnsmsg.go
 func (e *EDNS0_UL) pack() ([]byte, error) {
 	b := make([]byte, 4)

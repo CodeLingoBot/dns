@@ -580,7 +580,7 @@ func unpackTxt(msg []byte, off0 int) (ss []string, off int, err error) {
 	return
 }
 
-// Helpers for dealing with escaped bytes
+// isDigit helpers for dealing with escaped bytes
 func isDigit(b byte) bool { return b >= '0' && b <= '9' }
 
 func dddToByte(s []byte) byte {
@@ -593,7 +593,7 @@ func dddStringToByte(s string) byte {
 	return byte((s[0]-'0')*100 + (s[1]-'0')*10 + (s[2] - '0'))
 }
 
-// Helper function for packing and unpacking
+// intToBytes; Helper function for packing and unpacking
 func intToBytes(i *big.Int, length int) []byte {
 	buf := i.Bytes()
 	if len(buf) < length {
@@ -704,7 +704,7 @@ func unpackRRslice(l int, msg []byte, off int) (dst1 []RR, off1 int, err error) 
 	return dst, off, err
 }
 
-// Convert a MsgHdr to a string, with dig-like headers:
+// String; Convert a MsgHdr to a string, with dig-like headers:
 //
 //;; opcode: QUERY, status: NOERROR, id: 48404
 //
@@ -922,7 +922,7 @@ func (dns *Msg) Unpack(msg []byte) (err error) {
 	return dns.unpack(dh, msg, off)
 }
 
-// Convert a complete message to a string with dig-like output.
+// String; Convert a complete message to a string with dig-like output.
 func (dns *Msg) String() string {
 	if dns == nil {
 		return "<nil> MsgHdr"

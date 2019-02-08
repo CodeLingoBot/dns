@@ -237,7 +237,7 @@ func (rr *UINFO) Header() *RR_Header      { return &rr.Hdr }
 func (rr *URI) Header() *RR_Header        { return &rr.Hdr }
 func (rr *X25) Header() *RR_Header        { return &rr.Hdr }
 
-// len() functions
+// len; functions
 func (rr *A) len(off int, compression map[string]struct{}) int {
 	l := rr.Hdr.len(off, compression)
 	l += net.IPv4len // A
@@ -654,7 +654,7 @@ func (rr *X25) len(off int, compression map[string]struct{}) int {
 	return l
 }
 
-// copy() functions
+// copy; functions
 func (rr *A) copy() RR {
 	return &A{rr.Hdr, copyIP(rr.A)}
 }

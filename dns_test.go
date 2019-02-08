@@ -260,7 +260,7 @@ func TestMsgPackBuffer(t *testing.T) {
 	}
 }
 
-// Make sure we can decode a TKEY packet from the string, modify the RR, and then pack it again.
+// TestTKEY checks a case when Make sure we can decode a TKEY packet from the string, modify the RR, and then pack it again.
 func TestTKEY(t *testing.T) {
 	// An example TKEY RR captured.  There is no known accepted standard text format for a TKEY
 	// record so we do this from a hex string instead of from a text readable string.

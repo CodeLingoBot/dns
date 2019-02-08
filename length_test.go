@@ -18,7 +18,7 @@ func TestCompressLength(t *testing.T) {
 	}
 }
 
-// Does the predicted length match final packed length?
+// TestMsgCompressLength checks a case when Does the predicted length match final packed length?
 func TestMsgCompressLength(t *testing.T) {
 	makeMsg := func(question string, ans, ns, e []RR) *Msg {
 		msg := new(Msg)
